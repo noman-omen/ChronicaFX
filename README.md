@@ -25,6 +25,8 @@ ChronicaFX (This is my first ever project with Java and I plan to continue to ad
 - Import and export functionality for tasks
 - Possible cloud synchronization for cross-device use (Not likely to happen but sounds cool)
 - Learn how to compile into a complete program that can be easily installed and ran by any user with no programming knowledge.
+    - First will compile a .jar and give directions on how to install required libraries to make program work
+    - Once I feel the project is at a completion point I will make it into a .exe where everything is installed together so the user does not have to download other requirements.
 
 ## Setup
 
