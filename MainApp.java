@@ -16,7 +16,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Task Reminder App");
+        primaryStage.setTitle("ChronicaFX - Task Manager");
 
         // Menu Bar with About
         MenuBar menuBar = new MenuBar();
@@ -25,8 +25,8 @@ public class MainApp extends Application {
         aboutItem.setOnAction(e -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("About");
-            alert.setHeaderText("Task Reminder App");
-            alert.setContentText("Created by Judah Kidd\nVersion 1.0\nDesigned as a JavaFX project");
+            alert.setHeaderText("ChronicaFX");
+            alert.setContentText("Created by Judah Kidd\nVersion 1.0\nDesigned as a Java project for a Java programming class");
             alert.showAndWait();
         });
         helpMenu.getItems().add(aboutItem);

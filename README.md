@@ -27,6 +27,8 @@ ChronicaFX (This is my first ever project with Java and I plan to continue to ad
 - Learn how to compile into a complete program that can be easily installed and ran by any user with no programming knowledge.
     - First will compile a .jar and give directions on how to install required libraries to make program work
     - Once I feel the project is at a completion point I will make it into a .exe where everything is installed together so the user does not have to download other requirements.
+- Move the toolbar with the about dropdown menu up and make it look like a normal program / window.
+- Double check spelling for errors.
 
 ## Setup
 
