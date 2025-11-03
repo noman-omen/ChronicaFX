@@ -33,6 +33,8 @@ ChronicaFX (This is my first ever project with Java and I plan to continue to ad
 ## Setup
 
 1. **Install Java 24+**: [Download Java](https://www.oracle.com/java/technologies/downloads/)  
+    - Ensure JDK 24 is selected within VS Code
+        - In VS Code: Press Ctrl+Shift+P → type Java: Configure Java Runtime. Ensure your JDK 24 is selected as Workspace JDK.
 2. **Install JavaFX SDK**: [Download OpenJFX](https://openjfx.io/)  
 3. **Configure your IDE or run via command line**:
    
