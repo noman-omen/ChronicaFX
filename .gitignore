@@ -1,0 +1,22 @@
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# IDE settings
+/.idea/
+/.vscode/
+/nbproject/
+/out/
+/target/
+/bin/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# JavaFX libs
+/javafx-sdk*/
+/lib/
