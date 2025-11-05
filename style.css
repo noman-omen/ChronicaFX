@@ -1,0 +1,86 @@
+/* ===== Root Layout ===== */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
+/* ===== Menu Bar ===== */
+.menu-bar {
+    -fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e);
+    -fx-border-color: #1a252f;
+    -fx-border-width: 0 0 2 0;
+}
+
+.menu-bar .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.menu-bar .menu:hover {
+    -fx-background-color: #3c566e;
+}
+
+/* ===== Buttons ===== */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #6c757d, #495057);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 3, 0, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #adb5bd, #6c757d);
+}
+
+.button:pressed {
+    -fx-background-color: #343a40;
+}
+
+/* ===== ListView ===== */
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 4;
+    -fx-padding: 4;
+}
+
+.list-cell {
+    -fx-font-size: 14px;
+    -fx-padding: 6;
+}
+
+.list-cell:filled:selected, .list-cell:filled:selected:focused {
+    -fx-background-color: linear-gradient(to right, #007bff, #0056b3);
+    -fx-text-fill: white;
+}
+
+/* ===== Filter Bar ===== */
+#filterBar {
+    -fx-background-color: linear-gradient(to right, #dee2e6, #ced4da);
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+
+/* ===== Action Bar ===== */
+#actionBar {
+    -fx-background-color: linear-gradient(to right, #e9ecef, #dee2e6);
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+
+/* ===== Dialogs ===== */
+.dialog-pane {
+    -fx-background-color: #f1f3f5;
+    -fx-font-size: 14px;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #212529;
+}

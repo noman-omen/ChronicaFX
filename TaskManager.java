@@ -31,4 +31,13 @@ public class TaskManager {
         }
         return upcoming;
     }
+
+    public ArrayList<Task> getCompletedTasks() {
+        ArrayList<Task> completed = new ArrayList<>();
+        for (Task t : tasks) {
+            if (t.isCompleted()) completed.add(t);
+    }
+    return completed;
+    }
+
 }
