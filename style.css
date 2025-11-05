@@ -1,10 +1,10 @@
-/* ===== Root Layout ===== */
+/* Root Layout */
 .root {
     -fx-font-family: "Segoe UI", sans-serif;
     -fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);
 }
 
-/* ===== Menu Bar ===== */
+/* Menu Bar */
 .menu-bar {
     -fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e);
     -fx-border-color: #1a252f;
@@ -20,7 +20,7 @@
     -fx-background-color: #3c566e;
 }
 
-/* ===== Buttons ===== */
+/* Buttons */
 .button {
     -fx-background-color: linear-gradient(to bottom, #6c757d, #495057);
     -fx-text-fill: white;
@@ -39,7 +39,7 @@
     -fx-background-color: #343a40;
 }
 
-/* ===== ListView ===== */
+/* ListView */
 .list-view {
     -fx-background-color: white;
     -fx-border-color: #ced4da;
@@ -57,7 +57,7 @@
     -fx-text-fill: white;
 }
 
-/* ===== Filter Bar ===== */
+/* Filter Bar */
 #filterBar {
     -fx-background-color: linear-gradient(to right, #dee2e6, #ced4da);
     -fx-border-color: #adb5bd;
@@ -66,7 +66,7 @@
     -fx-spacing: 10;
 }
 
-/* ===== Action Bar ===== */
+/* Action Bar */
 #actionBar {
     -fx-background-color: linear-gradient(to right, #e9ecef, #dee2e6);
     -fx-border-color: #adb5bd;
@@ -75,7 +75,7 @@
     -fx-spacing: 10;
 }
 
-/* ===== Dialogs ===== */
+/* Dialogs */
 .dialog-pane {
     -fx-background-color: #f1f3f5;
     -fx-font-size: 14px;

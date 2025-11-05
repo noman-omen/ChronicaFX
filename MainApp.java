@@ -201,7 +201,7 @@ public class MainApp extends Application {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("About ChronicaFX");
         alert.setHeaderText("ChronicaFX - Task Manager");
-        alert.setContentText("Created by Judah Kidd\nVersion 1.0\nDesigned for a Java Programming Course\n\nA sleek and simple task manager built with JavaFX.");
+        alert.setContentText("Created by Judah Kidd\nVersion 1.2\nDesigned for a Java Programming Course\n\nA sleek and simple task manager built with JavaFX.");
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.showAndWait();
     }
