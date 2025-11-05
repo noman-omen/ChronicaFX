@@ -21,11 +21,11 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("ChronicaFX - Task Manager");
 
-        // === Menu Bar ===
+        // Menu Bar
         MenuBar menuBar = new MenuBar();
         menuBar.prefWidthProperty().bind(primaryStage.widthProperty());
 
-        // --- Help Menu ---
+        // Help Menu
         Menu helpMenu = new Menu("Help");
         MenuItem aboutItem = new MenuItem("About");
         aboutItem.setStyle("-fx-text-fill: black;");
@@ -35,7 +35,7 @@ public class MainApp extends Application {
         // Add menus
         menuBar.getMenus().add(helpMenu);
 
-        // === Input Fields ===
+        // Input Fields
         Label nameLabel = new Label("Task Name:");
         TextField taskNameField = new TextField();
         taskNameField.setPromptText("Enter task name");
@@ -55,7 +55,7 @@ public class MainApp extends Application {
         Button addButton = new Button("Add Task");
         addButton.getStyleClass().add("add-button");
 
-        // === Task List ===
+        // Task List
         ListView<Task> listView = new ListView<>(taskList);
         listView.setStyle("-fx-background-color: #F5F5F5;");
 
@@ -79,7 +79,7 @@ public class MainApp extends Application {
             }
         });
 
-        // === Buttons ===
+        // Buttons
         Button completeButton = new Button("Mark Complete");
         Button removeButton = new Button("Remove Task");
 
@@ -87,19 +87,19 @@ public class MainApp extends Application {
         Button showUpcomingButton = new Button("Show Upcoming");
         Button showCompletedButton = new Button("Show Completed");
 
-        // --- First Bar (Complete / Remove) ---
+        // First Bar (Complete / Remove)
         HBox manageBar = new HBox(10, completeButton, removeButton);
         manageBar.setAlignment(Pos.CENTER);
         manageBar.setPadding(new Insets(10));
         manageBar.setStyle("-fx-background-color: #3e3f3fff; -fx-background-radius: 6;");
 
-        // --- Second Bar (Overdue / Upcoming / Completed) ---
+        // Second Bar (Overdue / Upcoming / Completed)
         HBox viewBar = new HBox(10, showOverdueButton, showUpcomingButton, showCompletedButton);
         viewBar.setAlignment(Pos.CENTER);
         viewBar.setPadding(new Insets(10));
         viewBar.setStyle("-fx-background-color: #3e3f3fff; -fx-background-radius: 6;");
 
-        // === Button Actions ===
+        // Button Actions
         addButton.setOnAction(e -> {
             try {
                 manager.addTask(
@@ -142,7 +142,7 @@ public class MainApp extends Application {
         showUpcomingButton.setOnAction(e -> taskList.setAll(manager.getUpcomingTasks()));
         showCompletedButton.setOnAction(e -> taskList.setAll(manager.getCompletedTasks()));
 
-        // === Input Layout ===
+        // Input Layout
         GridPane inputGrid = new GridPane();
         inputGrid.setHgap(10);
         inputGrid.setVgap(10);
@@ -157,7 +157,7 @@ public class MainApp extends Application {
         inputGrid.add(addButton, 1, 4);
         inputGrid.setPadding(new Insets(10));
 
-        // === Root Layout ===
+        // Root Layout
         VBox bottomSection = new VBox(10, inputGrid, manageBar, viewBar);
         BorderPane root = new BorderPane();
         root.setTop(menuBar);
@@ -168,11 +168,17 @@ public class MainApp extends Application {
         Scene scene = new Scene(root, 850, 550);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
+        // Load tasks from file
+        manager.loadTasks();
+        taskList.setAll(manager.getTasks());
+
         primaryStage.setScene(scene);
+        // Save tasks when the application is closed
+        primaryStage.setOnCloseRequest(e -> manager.saveTasks());
         primaryStage.show();
     }
 
-    // === Helper Dialogs ===
+    // Helper Dialogs
     private void showCompletedTasks() {
         ArrayList<Task> completedTasks = manager.getCompletedTasks();
         if (completedTasks.isEmpty()) {

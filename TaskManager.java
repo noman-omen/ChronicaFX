@@ -1,19 +1,31 @@
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TaskManager {
     private ArrayList<Task> tasks = new ArrayList<>();
+    private static final String FILE_PATH = "tasks.txt";
 
+    // Add a new task
     public void addTask(String name, LocalDate dueDate, String notes, String priority) throws IllegalArgumentException {
         if (name.isEmpty()) throw new IllegalArgumentException("Task name cannot be empty.");
         if (dueDate == null) throw new IllegalArgumentException("Please select a due date.");
         tasks.add(new Task(name, dueDate, notes, priority));
+        saveTasks(); // Save automatically after adding
     }
 
-    public void removeTask(Task task) { tasks.remove(task); }
+    // Remove a task
+    public void removeTask(Task task) {
+        tasks.remove(task);
+        saveTasks(); // Save after removal
+    }
 
-    public ArrayList<Task> getTasks() { return tasks; }
+    // Get all tasks
+    public ArrayList<Task> getTasks() {
+        return tasks;
+    }
 
+    // Get overdue tasks
     public ArrayList<Task> getOverdueTasks() {
         ArrayList<Task> overdue = new ArrayList<>();
         LocalDate today = LocalDate.now();
@@ -23,6 +35,7 @@ public class TaskManager {
         return overdue;
     }
 
+    // Get upcoming tasks
     public ArrayList<Task> getUpcomingTasks() {
         ArrayList<Task> upcoming = new ArrayList<>();
         LocalDate today = LocalDate.now();
@@ -32,12 +45,48 @@ public class TaskManager {
         return upcoming;
     }
 
+    // Get completed tasks
     public ArrayList<Task> getCompletedTasks() {
         ArrayList<Task> completed = new ArrayList<>();
         for (Task t : tasks) {
             if (t.isCompleted()) completed.add(t);
-    }
-    return completed;
+        }
+        return completed;
     }
 
+    // === Save tasks to a text file ===
+    public void saveTasks() {
+        try (PrintWriter out = new PrintWriter(FILE_PATH)) {
+            for (Task t : tasks) {
+                // Format: name|dueDate|completed|notes|priority
+                out.println(t.getName() + "|" + t.getDueDate() + "|" + t.isCompleted() + "|" +
+                            t.getNotes().replace("|", "/") + "|" + t.getPriority());
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving tasks: " + e.getMessage());
+        }
+    }
+
+    // === Load tasks from a text file ===
+    public void loadTasks() {
+        tasks.clear();
+        File file = new File(FILE_PATH);
+        if (!file.exists()) {
+            System.out.println("No saved tasks found. Starting fresh.");
+            return;
+        }
+
+        try (BufferedReader in = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = in.readLine()) != null) {
+                String[] parts = line.split("\\|");
+                if (parts.length < 5) continue; // skip invalid lines
+                Task t = new Task(parts[0], LocalDate.parse(parts[1]), parts[3], parts[4]);
+                if (Boolean.parseBoolean(parts[2])) t.markComplete();
+                tasks.add(t);
+            }
+        } catch (IOException e) {
+            System.err.println("Error loading tasks: " + e.getMessage());
+        }
+    }
 }

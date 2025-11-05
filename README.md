@@ -19,16 +19,16 @@
 
 ChronicaFX (This is my first ever project with Java and I plan to continue to add to this through the rest of the semester)
 
-- Updated GUI with improved layout and usability
-- More task options, including categories and notes
-- Local database integration to save tasks between sessions
-- Import and export functionality for tasks
+- Updated GUI with improved layout and usability (COMPLETED:)
+- More task options, including categories and notes (COMPLETED:)
+- Local database integration to save tasks between sessions (COMPLETED: Used a simple Printwriter method to write to a text file which is saved for persistant memory.)
+- Import and export (I plan on creating a method to do this with my text file so the user can choose where the information is saved or have multiple lists)
 - Possible cloud synchronization for cross-device use (Not likely to happen but sounds cool)
 - Learn how to compile into a complete program that can be easily installed and ran by any user with no programming knowledge.
     - First will compile a .jar and give directions on how to install required libraries to make program work
     - Once I feel the project is at a completion point I will make it into a .exe where everything is installed together so the user does not have to download other requirements.
-- Move the toolbar with the about dropdown menu up and make it look like a normal program / window.
-- Double check spelling for errors.
+- Move the toolbar with the about dropdown menu up and make it look like a normal program / window. (Could not figure out how to make it align with the top of the application window but it does look better now.)
+- Double check spelling for errors. (COMPLETED:)
 
 ## Setup
 
