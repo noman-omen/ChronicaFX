@@ -15,20 +15,18 @@
 - Built with object-oriented principles using `Task` class, `ArrayList`, and methods for task management
 - Exception handling for invalid input
 
-## Planned Updates
+## New Features / Work Completed (As of 11/18/2025)
+1. Added a “Show All” Button
+- I included a new button in the filtering bar that resets the task view and displays every task in the list. Before this update, the user had to restart the program to return to the full task list after choosing a filtered view. This addition improves navigation and makes the interface more intuitive.
 
-ChronicaFX (This is my first ever project with Java and I plan to continue to add to this through the rest of the semester)
+2. Tasks Now Save Immediately When Marked Complete
+- Previously, completed tasks were visually updated but not saved until the program exited. I modified the event handler so that marking a task complete automatically triggers a save. This ensures that task completion is preserved even if the program closes unexpectedly.
 
-- Updated GUI with improved layout and usability (COMPLETED:)
-- More task options, including categories and notes (COMPLETED:)
-- Local database integration to save tasks between sessions (COMPLETED: Used a simple Printwriter method to write to a text file which is saved for persistant memory.)
-- Import and export (I plan on creating a method to do this with my text file so the user can choose where the information is saved or have multiple lists)
-- Possible cloud synchronization for cross-device use (Not likely to happen but sounds cool)
-- Learn how to compile into a complete program that can be easily installed and ran by any user with no programming knowledge.
-    - First will compile a .jar and give directions on how to install required libraries to make program work
-    - Once I feel the project is at a completion point I will make it into a .exe where everything is installed together so the user does not have to download other requirements.
-- Move the toolbar with the about dropdown menu up and make it look like a normal program / window. (Could not figure out how to make it align with the top of the application window but it does look better now.)
-- Double check spelling for errors. (COMPLETED:)
+3. Implemented Sorting for Overdue, Upcoming, and Completed Tasks
+- I added sorting logic to each of the task-filtering methods: Overdue and upcoming tasks are sorted by due date Completed tasks are sorted alphabetically by name This makes the task lists more organized and easier for the user to read, especially when the list grows larger.
+
+4. Improved File Persistence Using Base64 Encoding for Notes
+- The notes field in a task could previously cause formatting issues if the user entered symbols like the pipe character (|). To fix this, I updated my save/load system so that notes are encoded using Base64 before being written to the file. They are decoded when loaded back into the program. This makes the file storage more robust and prevents corrupted entries (Hopefully).
 
 ## Setup
 

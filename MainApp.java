@@ -79,27 +79,29 @@ public class MainApp extends Application {
             }
         });
 
-        // Buttons
+        // Define Buttons
         Button completeButton = new Button("Mark Complete");
         Button removeButton = new Button("Remove Task");
 
         Button showOverdueButton = new Button("Show Overdue");
         Button showUpcomingButton = new Button("Show Upcoming");
         Button showCompletedButton = new Button("Show Completed");
+        Button showAllButton = new Button("Show All");
 
-        // First Bar (Complete / Remove)
+
+        // First button bar where I set the location of specific buttons (Complete / Remove)
         HBox manageBar = new HBox(10, completeButton, removeButton);
         manageBar.setAlignment(Pos.CENTER);
         manageBar.setPadding(new Insets(10));
         manageBar.setStyle("-fx-background-color: #3e3f3fff; -fx-background-radius: 6;");
 
-        // Second Bar (Overdue / Upcoming / Completed)
-        HBox viewBar = new HBox(10, showOverdueButton, showUpcomingButton, showCompletedButton);
+        // Second button bar where I set the location of specific buttons (Overdue / Upcoming / Completed)
+        HBox viewBar = new HBox(10, showAllButton, showOverdueButton, showUpcomingButton, showCompletedButton);
         viewBar.setAlignment(Pos.CENTER);
         viewBar.setPadding(new Insets(10));
         viewBar.setStyle("-fx-background-color: #3e3f3fff; -fx-background-radius: 6;");
 
-        // Button Actions
+        // Button Actions (This is where I handle button clicks)
         addButton.setOnAction(e -> {
             try {
                 manager.addTask(
@@ -122,11 +124,13 @@ public class MainApp extends Application {
             Task selected = listView.getSelectionModel().getSelectedItem();
             if (selected != null) {
                 selected.markComplete();
+                manager.saveTasks();
                 listView.refresh();
             } else {
                 showAlert("Warning", "Select a task to mark as complete.");
             }
         });
+
 
         removeButton.setOnAction(e -> {
             Task selected = listView.getSelectionModel().getSelectedItem();
@@ -141,6 +145,8 @@ public class MainApp extends Application {
         showOverdueButton.setOnAction(e -> taskList.setAll(manager.getOverdueTasks()));
         showUpcomingButton.setOnAction(e -> taskList.setAll(manager.getUpcomingTasks()));
         showCompletedButton.setOnAction(e -> taskList.setAll(manager.getCompletedTasks()));
+        showAllButton.setOnAction(e -> taskList.setAll(manager.getTasks()));
+
 
         // Input Layout
         GridPane inputGrid = new GridPane();
@@ -201,7 +207,7 @@ public class MainApp extends Application {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("About ChronicaFX");
         alert.setHeaderText("ChronicaFX - Task Manager");
-        alert.setContentText("Created by Judah Kidd\nVersion 1.2\nDesigned for a Java Programming Course\n\nA sleek and simple task manager built with JavaFX.");
+        alert.setContentText("Created by Judah Kidd\nVersion 1.3\nDesigned for a Java Programming Course\n\nA sleek and simple task manager built with JavaFX.");
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.showAndWait();
     }

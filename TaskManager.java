@@ -1,6 +1,9 @@
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Base64;
+
 
 public class TaskManager {
     private ArrayList<Task> tasks = new ArrayList<>();
@@ -32,18 +35,23 @@ public class TaskManager {
         for (Task t : tasks) {
             if (!t.isCompleted() && t.getDueDate().isBefore(today)) overdue.add(t);
         }
+        overdue.sort(Comparator.comparing(Task::getDueDate));
         return overdue;
     }
+
 
     // Get upcoming tasks
     public ArrayList<Task> getUpcomingTasks() {
         ArrayList<Task> upcoming = new ArrayList<>();
         LocalDate today = LocalDate.now();
         for (Task t : tasks) {
-            if (!t.isCompleted() && (t.getDueDate().isEqual(today) || t.getDueDate().isAfter(today))) upcoming.add(t);
+                if (!t.isCompleted() && (t.getDueDate().isEqual(today) || t.getDueDate().isAfter(today)))
+            upcoming.add(t);
         }
+        upcoming.sort(Comparator.comparing(Task::getDueDate));
         return upcoming;
     }
+
 
     // Get completed tasks
     public ArrayList<Task> getCompletedTasks() {
@@ -51,23 +59,31 @@ public class TaskManager {
         for (Task t : tasks) {
             if (t.isCompleted()) completed.add(t);
         }
+        completed.sort(Comparator.comparing(Task::getName, String.CASE_INSENSITIVE_ORDER));
         return completed;
     }
 
-    // === Save tasks to a text file ===
+    // Save tasks to a text file
     public void saveTasks() {
         try (PrintWriter out = new PrintWriter(FILE_PATH)) {
             for (Task t : tasks) {
                 // Format: name|dueDate|completed|notes|priority
-                out.println(t.getName() + "|" + t.getDueDate() + "|" + t.isCompleted() + "|" +
-                            t.getNotes().replace("|", "/") + "|" + t.getPriority());
+                // I added Base64 encoding to handle special characters in notes as this will be cleaner in the long run versus the plain text approach I had before.
+                String encodedNotes = Base64.getEncoder().encodeToString(t.getNotes().getBytes());
+
+            out.println(t.getName() + "|" +
+                        t.getDueDate() + "|" +
+                        t.isCompleted() + "|" +
+                        encodedNotes + "|" +
+                        t.getPriority());
+
             }
         } catch (IOException e) {
             System.err.println("Error saving tasks: " + e.getMessage());
         }
     }
 
-    // === Load tasks from a text file ===
+    // Load tasks from a text file
     public void loadTasks() {
         tasks.clear();
         File file = new File(FILE_PATH);
@@ -81,7 +97,9 @@ public class TaskManager {
             while ((line = in.readLine()) != null) {
                 String[] parts = line.split("\\|");
                 if (parts.length < 5) continue; // skip invalid lines
-                Task t = new Task(parts[0], LocalDate.parse(parts[1]), parts[3], parts[4]);
+                // Line 101, and 102 are the decoding part for the notes for base64.
+                String decodedNotes = new String(Base64.getDecoder().decode(parts[3]));
+                Task t = new Task(parts[0], LocalDate.parse(parts[1]), decodedNotes, parts[4]);
                 if (Boolean.parseBoolean(parts[2])) t.markComplete();
                 tasks.add(t);
             }
