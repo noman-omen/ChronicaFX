@@ -7,7 +7,6 @@
 
 # IDE settings
 /.idea/
-/.vscode/
 /nbproject/
 /out/
 /target/

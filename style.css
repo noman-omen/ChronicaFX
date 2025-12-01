@@ -1,26 +1,37 @@
-/* Root Layout */
+/* ================================================================
+   Root Layout
+   (Sets the default font and background for the entire application)
+   ================================================================ */
 .root {
     -fx-font-family: "Segoe UI", sans-serif;
     -fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);
 }
 
-/* Menu Bar */
+/* ================================================================
+   Menu Bar Styling
+   (Controls colors and appearance of the top menu bar)
+   ================================================================ */
 .menu-bar {
     -fx-background-color: linear-gradient(to bottom, #2c3e50, #34495e);
     -fx-border-color: #1a252f;
     -fx-border-width: 0 0 2 0;
 }
 
+/* Text inside menu bar */
 .menu-bar .label {
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
+/* Hover effect when the mouse moves over menu options */
 .menu-bar .menu:hover {
     -fx-background-color: #3c566e;
 }
 
-/* Buttons */
+/* ================================================================
+   Buttons
+   (General button appearance throughout the program)
+   ================================================================ */
 .button {
     -fx-background-color: linear-gradient(to bottom, #6c757d, #495057);
     -fx-text-fill: white;
@@ -31,33 +42,20 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 3, 0, 0, 1);
 }
 
+/* Button hover highlight */
 .button:hover {
     -fx-background-color: linear-gradient(to bottom, #adb5bd, #6c757d);
 }
 
+/* Button pressed appearance */
 .button:pressed {
     -fx-background-color: #343a40;
 }
 
-/* ListView */
-.list-view {
-    -fx-background-color: white;
-    -fx-border-color: #ced4da;
-    -fx-border-radius: 4;
-    -fx-padding: 4;
-}
-
-.list-cell {
-    -fx-font-size: 14px;
-    -fx-padding: 6;
-}
-
-.list-cell:filled:selected, .list-cell:filled:selected:focused {
-    -fx-background-color: linear-gradient(to right, #007bff, #0056b3);
-    -fx-text-fill: white;
-}
-
-/* Filter Bar */
+/* ================================================================
+   Filter Bar
+   (Background and spacing for the bar holding view filter buttons)
+   ================================================================ */
 #filterBar {
     -fx-background-color: linear-gradient(to right, #dee2e6, #ced4da);
     -fx-border-color: #adb5bd;
@@ -66,7 +64,10 @@
     -fx-spacing: 10;
 }
 
-/* Action Bar */
+/* ================================================================
+   Action Bar
+   (Background and spacing for buttons like Complete / Remove)
+   ================================================================ */
 #actionBar {
     -fx-background-color: linear-gradient(to right, #e9ecef, #dee2e6);
     -fx-border-color: #adb5bd;
@@ -75,12 +76,55 @@
     -fx-spacing: 10;
 }
 
-/* Dialogs */
+/* ================================================================
+   Dialog Windows
+   (Controls styling of pop-up alerts and notes windows)
+   ================================================================ */
 .dialog-pane {
     -fx-background-color: #f1f3f5;
     -fx-font-size: 14px;
 }
 
+/* Dialog text color */
 .dialog-pane .label {
     -fx-text-fill: #212529;
+}
+
+/* ================================================================
+   TableView Styling (NEW)
+   (Applies styling to the main task list table)
+   ================================================================ */
+.table-view {
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 4;
+    -fx-background-color: white;
+}
+
+/* Table header background */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #dee2e6, #ced4da);
+    -fx-border-color: #adb5bd;
+}
+
+/* Table header text */
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #212529;
+}
+
+/* Row appearance */
+.table-view .table-row-cell {
+    -fx-font-size: 14px;
+    -fx-padding: 6;
+}
+
+/* Selected row highlight */
+.table-view .table-row-cell:selected {
+    -fx-background-color: linear-gradient(to right, #007bff, #0056b3);
+    -fx-text-fill: white;
+}
+
+/* Ensures readable text when highlighted */
+.table-view .table-row-cell:selected .text {
+    -fx-fill: white;
 }

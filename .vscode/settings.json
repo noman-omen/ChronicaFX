@@ -1,0 +1,52 @@
+{
+    // ================================================================
+    // JavaFX SDK Path
+    // ---------------------------------------------------------------
+    // This is the folder on my computer where I installed the JavaFX SDK.
+    // VS Code needs this path so it knows where to find all the JavaFX
+    // modules required for my program to run.
+    //
+    // If you are running this on your own computer, you would change this
+    // path to wherever you downloaded and extracted your JavaFX SDK.
+    // The folder must include a "lib" directory that contains all the .jar files.
+    // ================================================================
+    "javafx.sdk.path": "E:\\JavaFX",
+
+    // ================================================================
+    // JavaFX Referenced Libraries
+    // ---------------------------------------------------------------
+    // These are the JavaFX .jar files that my project needs.
+    // They come from the JavaFX SDK's "lib" folder.
+    //
+    // VS Code requires that each library be listed here so the compiler
+    // can find them and run the program correctly.
+    //
+    // If this project is opened on another computer, these paths would
+    // need to be updated to point to that computer's JavaFX "lib" folder.
+    // ================================================================
+    "java.project.referencedLibraries": [
+        "E:\\JavaFX\\lib\\javafx.media.jar",
+        "E:\\JavaFX\\lib\\jfx.incubator.input.jar",
+        "E:\\JavaFX\\lib\\javafx.base.jar",
+        "E:\\JavaFX\\lib\\javafx.swing.jar",
+        "E:\\JavaFX\\lib\\javafx.web.jar",
+        "E:\\JavaFX\\lib\\jdk.jsobject.jar",
+        "E:\\JavaFX\\lib\\javafx.fxml.jar",
+        "E:\\JavaFX\\lib\\javafx.controls.jar",
+        "E:\\JavaFX\\lib\\javafx.graphics.jar",
+        "E:\\JavaFX\\lib\\javafx-swt.jar",
+        "E:\\JavaFX\\lib\\jfx.incubator.richtext.jar"
+    ],
+
+    // ================================================================
+    // Java Source Paths
+    // ---------------------------------------------------------------
+    // This tells VS Code where my Java files are located.
+    // My whole project is in the main folder, so I point it to ".".
+    //
+    // If the files were inside a src/ folder, this would need to change.
+    // ================================================================
+    "java.project.sourcePaths": [
+        "."
+    ]
+}
