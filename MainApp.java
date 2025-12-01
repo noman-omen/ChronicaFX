@@ -1,7 +1,6 @@
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -62,7 +61,7 @@ public class MainApp extends Application {
         // It replaces the old ListView and gives us clean columns
         // ============================================================
         TableView<Task> tableView = new TableView<>(taskList);
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableView.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
 
         // Each column below shows one part of the task
         TableColumn<Task, String> nameColumn = new TableColumn<>("Task Name");
