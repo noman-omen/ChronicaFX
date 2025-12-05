@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class MainApp extends Application {
 
@@ -58,7 +57,7 @@ public class MainApp extends Application {
 
         // ============================================================
         // TABLEVIEW - This is the main task viewer
-        // It replaces the old ListView and gives us clean columns
+        // It replaces the old ListView and gives me clean columns
         // ============================================================
         TableView<Task> tableView = new TableView<>(taskList);
         tableView.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
@@ -116,7 +115,10 @@ public class MainApp extends Application {
         });
 
         // Add all columns to the table
-        tableView.getColumns().addAll(nameColumn, priorityColumn, dueDateColumn, statusColumn, notesColumn);
+        @SuppressWarnings("unchecked")
+        TableColumn<Task, ?>[] columns = new TableColumn[] { nameColumn, priorityColumn, dueDateColumn, statusColumn,
+                notesColumn };
+        tableView.getColumns().addAll(columns);
 
         // ============================================================
         // Default sorting: earliest due date first
@@ -281,24 +283,6 @@ public class MainApp extends Application {
     // ============================================================
     // HELPER POPUP WINDOWS (Completed tasks or About dialog)
     // ============================================================
-    private void showCompletedTasks() {
-        ArrayList<Task> completedTasks = manager.getCompletedTasks();
-
-        if (completedTasks.isEmpty()) {
-            showAlert("Completed Tasks", "No completed tasks yet.");
-            return;
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (Task t : completedTasks)
-            sb.append(t).append("\n");
-
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Completed Tasks");
-        alert.setHeaderText("Your Completed Tasks:");
-        alert.setContentText(sb.toString());
-        alert.showAndWait();
-    }
 
     private void showAboutDialog() {
         Alert alert = new Alert(AlertType.INFORMATION);

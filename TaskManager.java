@@ -47,7 +47,7 @@ public class TaskManager {
     }
 
     // ============================================================
-    // Get all overdue tasks (due date is before today)
+    // Get all overdue tasks (due date is before today) (for loop)
     // ============================================================
     public ArrayList<Task> getOverdueTasks() {
 
@@ -67,7 +67,7 @@ public class TaskManager {
     }
 
     // ============================================================
-    // Get upcoming tasks (today or any future date)
+    // Get upcoming tasks (today or any future date) (for loop)
     // ============================================================
     public ArrayList<Task> getUpcomingTasks() {
 
@@ -90,7 +90,7 @@ public class TaskManager {
     }
 
     // ============================================================
-    // Get all completed tasks
+    // Get all completed tasks (for loop)
     // ============================================================
     public ArrayList<Task> getCompletedTasks() {
 

@@ -6,8 +6,9 @@
             "name": "Launch MainApp",
             "request": "launch",
             "mainClass": "MainApp",
-            // The below "vmArgs" setting tells Java where to find the JavaFX modules needed to run the program. Change the path to match your own JavaFX SDK location.
-            "vmArgs": "--module-path \"E:\\JavaFX\\lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics"
+            
+            // Updated vmArgs including JavaFX module path, modules, and native-access flags
+            "vmArgs": "--module-path \"E:\\JavaFX\\lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics --enable-native-access=javafx.graphics --enable-native-access=ALL-UNNAMED"
         }
     ]
 }

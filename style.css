@@ -1,11 +1,20 @@
 /* ================================================================
    Root Layout
-   (Sets the default font and background for the entire application)
+   (Sets the default font, background, border, and global padding)
    ================================================================ */
 .root {
     -fx-font-family: "Segoe UI", sans-serif;
     -fx-background-color: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+
+    /* Add clean spacing around the window content */
+    -fx-padding: 12;
+
+    /* Soft border around the entire UI */
+    -fx-border-color: #adb5bd;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
 }
+
 
 /* ================================================================
    Menu Bar Styling
