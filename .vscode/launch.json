@@ -7,7 +7,7 @@
             "request": "launch",
             "mainClass": "MainApp",
             
-            
+            // Adjust the module-path and add-modules according to your JavaFX installation
             "vmArgs": "--module-path \"E:\\JavaFX\\lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics --enable-native-access=javafx.graphics --enable-native-access=ALL-UNNAMED"
         }
     ]
