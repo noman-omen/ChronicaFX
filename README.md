@@ -77,7 +77,7 @@ Each task now automatically determines its current state:
 - **Overdue** (due date is before today)
 - **Upcoming** (all future tasks)
 
-**Why this was added:**  
+**Why this was added:**
 The status information used to be embedded inside the text string in the ListView. Now it has its own column, making sorting and readability far better.
 
 The new Status column also powers the improved row-coloring system.
@@ -88,11 +88,11 @@ The new Status column also powers the improved row-coloring system.
 
 In the new TableView, each task row automatically changes color based on its status:
 
-- **Light Green:** Completed  
-- **Light Red:** Overdue  
-- **Light Blue:** Upcoming  
+- **Light Green:** Completed
+- **Light Red:** Overdue
+- **Light Blue:** Upcoming
 
-**Why this change was made:**  
+**Why this change was made:**
 The ListView colored only the text, which was hard to see and inconsistent. Full row coloring creates clear, easy-to-spot visual cues and improves the overall user experience.
 
 ---
@@ -103,9 +103,9 @@ Instead of trying to display long notes inside the table, each row now includes 
 
 **Why this improvement was necessary:**
 
-- Prevents long notes from breaking the table layout  
-- Keeps the UI clean and organized  
-- Allows unlimited notes text  
+- Prevents long notes from breaking the table layout
+- Keeps the UI clean and organized
+- Allows unlimited notes text
 
 This makes notes much more usable and professional.
 
@@ -115,7 +115,7 @@ This makes notes much more usable and professional.
 
 The TableView now allows the user to deselect a task simply by clicking anywhere outside the table.
 
-**Why this was added:**  
+**Why this was added:**
 Without this feature, the user could only deselect by selecting another row, which was annoying if only one row was available. This small detail improves usability and makes the interface behave more naturally.
 
 ---
